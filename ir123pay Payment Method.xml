@@ -7,8 +7,8 @@
     <jsFiles/>
     <resourcesFiles/>
     <lang>
-        <word key="gateway___123pay" js="0">123pay</word>
-        <word key="_123pay_merchant_id" js="0">merchant_id</word>
+        <word key="gateway__ir123pay" js="0">123pay</word>
+        <word key="ir123pay_merchant_id" js="0">merchant_id</word>
     </lang>
     <versions>
         <version long="10000" human="1.0.0"><![CDATA[//<?php
