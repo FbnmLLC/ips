@@ -9,7 +9,7 @@ if ( ! defined( '\IPS\SUITE_UNIQUE_KEY' ) ) {
 
 class _ir123pay extends \IPS\nexus\Gateway {
 	const ir123pay_SEND_URL = 'https://123pay.ir/api/v1/create/payment';
-	const ir123pay_CHECK_URL = 'https://123pay.ir/api/v1/verify/payment\'';
+	const ir123pay_CHECK_URL = 'https://123pay.ir/api/v1/verify/payment';
 
 	public function checkValidity( \IPS\nexus\Money $amount, \IPS\GeoLocation $billingAddress ) {
 		if ( $amount->currency != 'IRR' ) {
@@ -22,7 +22,7 @@ class _ir123pay extends \IPS\nexus\Gateway {
 	public function auth( \IPS\nexus\Transaction $transaction, $values, \IPS\nexus\Fraud\MaxMind\Request $maxMind = null ) {
 		$transaction->save();
 		$data = array(
-			'amount'       => $transaction->amount->amount,
+			'amount'       => round( (string) $transaction->amount->amount ),
 			'callback_url' => urlencode( (string) \IPS\Settings::i()->base_url . 'applications/nexus/interface/gateways/ir123pay.php?nexusTransactionId=' . $transaction->id )
 		);
 
@@ -53,7 +53,7 @@ class _ir123pay extends \IPS\nexus\Gateway {
 	public function api( $data, $verify = false ) {
 		$data['merchant_id'] = json_decode( $this->settings )->merchant_id;
 
-		return intval( (string) \IPS\Http\Url::external( $verify ? self::ir123pay_CHECK_URL : self::ir123pay_SEND_URL )->request()->post( $data ) );
+		return (string) \IPS\Http\Url::external( $verify ? self::ir123pay_CHECK_URL : self::ir123pay_SEND_URL )->request()->post( $data );
 	}
 
 }
