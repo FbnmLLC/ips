@@ -7,7 +7,7 @@
     <jsFiles/>
     <resourcesFiles/>
     <lang>
-        <word key="gateway__ir123pay" js="0">123pay</word>
+        <word key="gateway__ir123pay" js="0">ir123pay</word>
         <word key="ir123pay_merchant_id" js="0">merchant_id</word>
     </lang>
     <versions>
@@ -26,20 +26,13 @@ if ( !defined( '\IPS\SUITE_UNIQUE_KEY' ) )
  */
 class ips_plugins_setup_install
 {
-	/**
-	 * ...
-	 *
-	 * @return	array	If returns TRUE, upgrader will proceed to next step. If it returns any other value, it will set this as the value of the 'extra' GET parameter and rerun this step (useful for loops)
-	 */
 	public function step1()
 	{
 		
 
 		return TRUE;
 	}
-	
-	// You can create as many additional methods (step2, step3, etc.) as is necessary.
-	// Each step will be executed in a new HTTP request
+
 }]]></version>
     </versions>
 </plugin>

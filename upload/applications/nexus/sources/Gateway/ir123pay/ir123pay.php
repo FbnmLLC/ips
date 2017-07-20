@@ -7,7 +7,7 @@ if ( ! defined( '\IPS\SUITE_UNIQUE_KEY' ) ) {
 	exit;
 }
 
-class _ir123paypay extends \IPS\nexus\Gateway {
+class _ir123pay extends \IPS\nexus\Gateway {
 	const ir123pay_SEND_URL = 'https://123pay.ir/api/v1/create/payment';
 	const ir123pay_CHECK_URL = 'https://123pay.ir/api/v1/verify/payment\'';
 
