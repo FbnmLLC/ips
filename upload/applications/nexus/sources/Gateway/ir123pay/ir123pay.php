@@ -43,7 +43,7 @@ class _ir123pay extends \IPS\nexus\Gateway {
 
 	public function settings( &$form ) {
 		$settings = json_decode( $this->settings, true );
-		$form->add( new \IPS\Helpers\Form\Text( 'merchant_id', $this->id ? $settings['merchant_id'] : '', true ) );
+		$form->add( new \IPS\Helpers\Form\Text( 'ir123pay_merchant_id', $this->id ? $settings['merchant_id'] : '', true ) );
 	}
 
 	public function testSettings( $settings ) {
