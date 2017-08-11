@@ -11,7 +11,8 @@ class _ir123pay extends \IPS\nexus\Gateway {
 	const ir123pay_SEND_URL = 'https://123pay.ir/api/v1/create/payment';
 	const ir123pay_CHECK_URL = 'https://123pay.ir/api/v1/verify/payment';
 
-	public function checkValidity( \IPS\nexus\Money $amount, \IPS\GeoLocation $billingAddress ) {
+	//public function checkValidity( \IPS\nexus\Money $amount, \IPS\GeoLocation $billingAddress ) {
+	public function checkValidity( \IPS\nexus\Money $amount, \IPS\GeoLocation $billingAddress = null, \IPS\nexus\Customer $customer = null ) {
 		if ( $amount->currency != 'IRR' ) {
 			return false;
 		}
